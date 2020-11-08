@@ -1,0 +1,78 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-primary navbar-light" >
+
+  <div class="col-0"> 
+    <a href="{%url 'inicio'%}"><img src="https://image.flaticon.com/icons/svg/2969/2969695.svg" alt="" width="50" height="50"></a>
+    <a href="{%url 'inicio'%}" ><img src="https://image.flaticon.com/icons/svg/2965/2965435.svg" alt="" width="50" height="50"></a>
+    <a style="color: white" class="navbar-brand" href="{%url 'inicio'%}">Ropa y Novedades</a>
+  </div>
+  
+  <nav style="color: black" class="navbar  navbar-nav ml-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {% if user.username %}
+        <ul class="navbar-nav mr-auto">
+          {% if user.is_staff %}
+
+            <a  href="{%url 'listararticulos'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Artículos
+              </button>
+            </a>
+            <a  href="{%url 'listarcategorias'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Categorías
+              </button>
+            </a>
+            <a href="{%url 'listarclientes'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Clientes
+              </button>
+            </a>
+            <a  href="{% url 'listarventas'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Ventas
+              </button>
+            </a>
+            <a  href="{% url 'registraradmin'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Administradores
+              </button>
+            </a>
+            <a  href="{% url 'registrarabono'%}">
+              <button style="color: white; font-size: 16px" class="btn btn-primary">
+                Abonar
+              </button>
+            </a>
+          
+          {% else %}
+            <img src="{% static 'img/avatar.png' %}" width="40" height="40">
+            <li class="nav-item active">
+              <a aria-disabled="true" class="nav-link" style="color: white; font-size: 16px" href="{% url 'verperfil'%}">Mi Perfil<span class="sr-only">(current)</span></a>
+            </li>
+            <img src="{% static 'img/favorito.png' %}" width="40" height="40">
+            <li class="nav-item active">
+              <a class="nav-link" aria-disabled="true" style="color: white; font-size: 16px" href="#">Favoritos</a>
+            </li>
+            <img src="{% static 'img/calendario.png' %}" width="40" height="40">
+            <li class="nav-item active">
+              <a class="nav-link" aria-disabled="true" style="color: white; font-size: 16px" href="#">Apartados</a>
+            </li>
+            <img src="{% static 'img/carro.png' %}" width="40" height="40">
+            <li class="nav-item active">
+                <a class="nav-link" aria-disabled="true" style="color: white; font-size: 16px" href="{% url 'listarcompras'%}">Compras</a>
+              </li>
+          {% endif %}
+          
+          
+        </ul>
+        <form class="form-inline">
+          <input class="btn btn-outline-light" type="search" placeholder="" aria-label="Search">
+          <button class="btn btn-light" type="submit">Buscar</button>
+        </form>
+      {%endif%}
+      {%if user.username %}
+        <a href="{% url 'salir'%}" class="btn btn-danger" role="button" aria-pressed="true">Salir</a>
+      {%endif%}
+    </div>
+  </nav>
+</nav>

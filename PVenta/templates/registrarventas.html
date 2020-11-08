@@ -1,0 +1,113 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+{%include 'header.html'%}
+<body >
+    {%include 'navizquierdo.html'%}<!--Se incluye el codigo de la barra de navegacion izquierda-->
+        <div class="card main-header">
+            {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <h1 class="card-title">Registrar Ventas</h1>               
+                            <form method="POST" action="{% url 'registrarventas'%}" class="form"></form>
+                                <div  class="form-row" id="ar">
+                                        <div >
+                                            <div class="col-md-10">
+                                                <label for="validationCustom05">ID Venta</label>
+                                                <input type="text" name="idVenta" class="form-control" id="validationCustom05" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="validationCustom05">ID Articulo</label>
+                                            <input id="idAr" type="text" name="idAr" class="form-control" id="validationCustom05" required>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="validationCustom05">ID Cliente</label>
+                                            <input id="idC" type="text" name="idCliente" class="form-control" id="validationCustom05" required>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <button id="agregar" type="submit" class="btn btn-primary">Agregar otro</button>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
+                                </div>
+                                <label for="customRange3"> </label>
+                                <label for="customRange3"> </label>
+                                    <input type="range" class="custom-range" id="customRange3">
+                                <div class="form-row">
+                                    <div class="col-md-1">
+                                        <label for="validationCustom04">Total</label>
+                                        <input id="total" type="text" name="total" class="form-control" placeholder="$0.00" value="{{ar.precio}}" autocomplete="off" id="validationCustom05">
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button on type="button" class="btn btn-primary">Guardar</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        <!-- /.card -->
+            
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        <script type="application/javascript">
+    
+            $('#agregar').on('click', function(){
+               
+                valor = document.getElementById("idAr").value;
+                var token = '{{csrf_token}}';
+                $.ajax({
+                    headers: { "X-CSRFToken": token },
+                    url: "{% url 'registrarventas'%}",
+                    type: 'POST',
+                    data: {idAr:valor},
+                    dataType: 'json',
+                   
+                }).done(function(data){
+                    if (data['articulos']==null){
+                        
+                    }else{
+                        $('#ar').append('<div class="col-md-4"><label for="validationCustom05">ID Artículo</label><input id="n" type="text" name="idAr" class="form-control" id="validationCustom05" required></div>');
+                        $('#ar').append('<div class="col-md-2"><label for="validationCustom03">Cantidad</label><input id="n1" type="number" name="cantidadA" class="form-control"   id="validationCustom03" required></div>');
+                        $('#ar').append('<div class="col-md-2"><label for="validationCustom03">Precio</label><input id="n2" type="text" name="precio" class="form-control"   id="validationCustom03" required></div>');
+                        $('#ar').append('<img src="{%static 'img/pantalonH/pantalon.jpg'%}" alt="" width="98" height="98" >');
+                    }
+
+                    
+                   console.log(data);
+                }).always(function(data){
+                    if (data['articulos']==null){
+                        alert('error');
+                    }else{
+                        var d=data['articulos']
+                        $("#n").val(d[1]);
+                        $("#n1").val(d[4]);
+                        $("#n2").val(d[5]);
+                        $('#n').attr("id",d[0]);
+                        $('#n1').attr("id",d[0]);
+                        $('#n2').attr("id",d[0]);
+                        valor1 = document.getElementById("total").value;
+                        valor1 = Number(valor1) + Number(d[5]);
+                        $("#total").val(valor1);
+                    }
+                    
+                });
+                
+               
+            });
+            
+        </script>
+        
+
+    {%include 'footer.html'%}
+                                
+</body>
+</html>

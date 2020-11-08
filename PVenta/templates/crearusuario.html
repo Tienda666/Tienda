@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body>
+    {% include 'nav.html' %}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h1 class="card-title">Registrate como Cliente</h1>               
+                        <form method="POST" action="{%url 'crearusuario'%}" class="form">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <label for="validationCustom05">ID Cliente</label>
+                                            <input type="text" name="idCliente" class="form-control" id="validationCustom05" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom01">Nombre</label>
+                                        <input type="text" name="nameCl" class="form-control" id="validationCustom01" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom02">Apellido Paterno</label>
+                                        <input type="text" name="apellidoP" class="form-control" id="validationCustom02" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom02">Apellido Materno</label>
+                                        <input type="text" name="apellidoM" class="form-control" id="validationCustom02" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-2">
+                                        <label for="validationCustom03">Calle</label>
+                                        <input type="text" name="calle" class="form-control" maxlength="30" autocomplete="off" id="validationCustom03" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom03">Número</label>
+                                        <input type="number" name="numero" class="form-control"   id="validationCustom03" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <label for="validationCustom03">Colonia</label>
+                                            <input type="text" name="colonia" class="form-control" maxlength="30" autocomplete="off" id="validationCustom03" required>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="validationCustom04">Celular</label>
+                                        <input type="text" name="celular" class="form-control" placeholder="3418784265" autocomplete="off" id="validationCustom05">
+                                    </div>
+                                </div>
+                                <label for="customRange3">Datos Extra</label>
+                                <input type="range" class="custom-range" id="customRange3">     
+                                <div class="form-row">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <label for="validationCustom05">Correo Electrónico</label>
+                                            <input type="email" name="email" class="form-control" maxlength="30" id="validationCustom05" autocomplete="off" required>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <label for="validationCustom05">Nombre de usuario</label>
+                                            <input type="text" name="username" class="form-control" maxlength="30" id="validationCustom05" autocomplete="off" required>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <label for="validationCustom05">Contraseña</label>
+                                            <input type="text" name="password" class="form-control" maxlength="30" id="validationCustom05" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                </div>     
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <!-- /.card -->
+        
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+</body>
+</html>

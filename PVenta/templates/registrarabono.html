@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html'%}
+
+<body class="sidebar-mini" style="height: auto;" >
+        <div class="wrapper"> 
+        {%include 'navizquierdo.html'%}
+            <div class="card card-solid main-header">
+                {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+                <div class="card card-withe">
+                        <div class="card-header">
+                          <h3 class="card-title">Registrar Abono</h3>
+                        </div>
+                        
+                        <div class="card-body">
+                                <div class="form-group">
+                                        <label>ID Abono:</label>
+                                        <div class="input-group">
+                                          <input type="text" class="form-control"   im-insert="true">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label>¿Cúal venta?:</label>
+                                        <div class="input-group">
+                                          <input type="text" class="form-control"   im-insert="true">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label>¿Quién abona?:</label>
+                                        <div class="input-group">
+                                          <input type="text" class="form-control"   im-insert="true">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label>Monto:</label>
+                                        <div class="input-group">
+                                          <input type="number" class="form-control"   im-insert="true">
+                                        </div>
+                                </div>
+                          <div class="form-group">
+                            <label>Fecha:</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                              </div>
+                              <input type="number" class="form-control" placeholder="Dia" im-insert="false">
+                              <input type="number" class="form-control" placeholder="Mes" im-insert="false">
+                              <input type="number" class="form-control" placeholder="Año" im-insert="false">
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+          
+                        </div>
+                        <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Abonar</button>
+                        </div>
+                      </div>
+    
+                
+            </div>
+            {%include 'footer.html'%}
+        </div>
+        
+    </body>
+</html>

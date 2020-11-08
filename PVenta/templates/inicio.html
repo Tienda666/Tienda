@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html style="height: auto;" lang="en">
+{%include 'header.html'%}
+<body class="sidebar-mini" style="height: auto;" >
+    <div class="wrapper"> 
+        {%include 'navizquierdo.html'%}
+        <section class="content">
+            <div class="card card-solid main-header">
+                {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+                <div class="card-body pb-0">
+                    <div class="row d-flex align-items-stretch">
+                        {%for x in articulos%}
+                            <div class="col-12 col-sm-4 col-md-3 d-flex align-items-stretch" >
+                            <div class="card bg-light" >
+                                <div class="card-header text-muted border-bottom-0">
+                                    {{x.nameAr}}
+                                </div>
+                                <div class="card-body pt-0">
+                                    {% if x.idAr == 12 %}
+                                        <img src="{%static 'img/pantalonH/pantalon.jpg'%}" alt="" class="img-fluid mb-2">
+                
+                                    {%endif%}
+                                    {% if x.idAr == 23 %}
+                                        <img src="{%static 'img/zapatoM/zapato.jpg'%}" alt="" class="img-fluid mb-2">
+                
+                                    {%endif%}
+                                    {% if x.idAr == 90 %}
+                                        <img src="{%static 'img/BlusaAzul.png'%}" alt="" class="img-fluid mb-2">
+                
+                                    {%endif%}
+                                    {% if x.idAr == 123 %}
+                                        <img src="{%static 'img/TenisNegrosM.png'%}" alt="" class="img-fluid mb-2">
+                
+                                    {%endif%}
+                                    {% if x.idAr == 13 %}
+                                        <img src="{%static 'img/camisaH/camisa2.jpg'%}" alt="" class="img-fluid mb-2">
+                                    {%endif%}
+                                    {% if x.idAr == 32 %}
+                                        <img src="{%static 'img/gorraNegra.png'%}" alt="" class="img-fluid mb-2">
+                                    {%endif%}
+
+                                    {% if x.idAr == 342 %}
+                                        <img src="{%static 'img/gorraBlanca.png'%}" alt="" class="img-fluid mb-2">
+                                    {%endif%}
+                                    <div class="row">
+                                        <div class="col-12">
+                                        <h3 class="lead"><b>${{x.precio}}</b></h3>
+                                        <p class="text-muted text-sm"><b>Talla: </b> {{x.talla|upper}} </p>
+                                        <p class="text-muted text-sm"><b>Descripción: </b> {{x.descripcion}} </p>
+                                        <!--
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                        </ul>
+                                        -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="text-right">
+                                    
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="far fa-calendar-check"></i> Apartar
+                                    </button>
+                                    
+                                    <button class="btn btn-sm bg-teal">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    
+                                    <button class="btn btn-sm btn-primary">
+                                        <i class="fas fa-align-justify"></i> Ver Articulo
+                                    </button>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        {%endfor%}
+                    </div>
+                </div>
+
+                <!--Inicio Footer de Card-->
+                <div class="card-footer">
+                <nav aria-label="Contacts Page Navigation">
+                    <ul class="pagination justify-content-center m-0">
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item"><a class="page-link" href="#">8</a></li>
+                    </ul>
+                </nav>
+                </div>
+                <!-- footer -->
+            </div>
+            {%include 'footer.html'%}
+        </section>
+    </div>
+    
+</body>
+</html>

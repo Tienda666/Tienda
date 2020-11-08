@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+{%include 'header.html'%}
+<body >
+    {%include 'navizquierdo.html'%}<!--Se incluye el codigo de la barra de navegacion izquierda-->
+        <div class="card main-header">
+            {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+            <div class="card-header">
+                <h3 class="card-title">Lista de Ventas</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Buscar Venta">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-body table-responsive p-0" style="height: 500px;">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Se vendió a</th>
+                        <th>Total ($)</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in ventas %}
+                            <tr>
+                                <td>{{x.idVenta}}</td>
+                                {%for a in clientes%}
+                                    {% if a.idCliente == x.idCliente %}
+                                        <td>{{a.nameCl}}</td>
+                                    {%endif%}
+                                {% endfor %}
+                                <td>$ {{x.total}}</td>
+                            </tr>
+                        {% endfor %}
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                    <button class="btn bg-teal btn-flat" >
+                      <a href="{%url 'registrarventas'%}"> <i class="far fa-edit" ></i> Agregar Venta</a>
+                    </button>
+            </div>
+        </div>
+
+
+    {%include 'footer.html'%}
+</body>
+</html>

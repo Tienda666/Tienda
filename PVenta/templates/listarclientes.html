@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+{%include 'header.html'%}
+<body >
+    {%include 'navizquierdo.html'%}<!--Se incluye el codigo de la barra de navegacion izquierda-->
+        <div class="card main-header">
+            {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+            <div class="card-header">
+                    <h3 class="card-title">Lista de Clientes</h3>
+                    <div class="card-tools">
+                      <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Buscar Cliente">
+            
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="card-body table-responsive p-0" style="height: 500px;">
+                    <table id="data" class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Dirección</th>
+                                <th>Correo</th>
+                                <th>Celular</th>
+                                <th>Puntos</th>
+                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in clientes %}
+                                <tr>
+                                    <td>{{x.idCliente}}</td>
+                                    <td>{{x.idTipo}}</td>
+                                    <td>{{x.nameCl}}</td>
+                                    <td><span class="tag tag-success">{{x.apellidoP}}</span></td>
+                                    <td><span class="tag tag-success">{{x.apellidoM}}</span></td>
+                                    <td>{{x.calle}} #{{x.numero}}, {{x.colonia}}</td>
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.celular}}</td>
+                                    <td>{{x.puntos}}</td>
+                                </tr>
+                            {% endfor %}
+                        
+                    
+                        </tbody>
+                    </table>
+            </div>
+            <div class="card-footer">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                    </ul>
+            </div>
+        </div>
+
+
+    {%include 'footer.html'%}
+</body>
+</html>
+
+
+
+
+            
+            
+

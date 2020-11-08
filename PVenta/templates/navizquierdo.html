@@ -1,0 +1,197 @@
+{% load static%}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+            <img src="{%static 'img/usuario.jpeg'%}" class="img-circle elevation-2" alt="Imagen de usuario">
+            </div>
+            <div class="info">
+            <a href="#" class="d-block"><font style="vertical-align: inherit; color: white"><font style="vertical-align: inherit;">{{user.username}}</font></font></a>
+            </div>
+        </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <strong>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit; color: white">
+                        Tablero
+                        </font></font><i class="right fas fa-angle-left"></i>
+                        </p>
+                    </strong>
+                    </a>
+                </li>
+                <!----------------------------------------------------------------->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Categorias
+                        </font></font><i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        
+                            <li class="nav-item">
+                            <a href="{% url 'categoriaHombre'%}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hombre</font></font></p>
+                            </a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="{% url 'categoriaMujer'%}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mujer</font></font></p>
+                            </a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="../charts/chartjs.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A</font></font></p>
+                            </a>
+                            </li>
+                        
+                    </ul>
+                </li>
+                <!----------------------------------------------------------------->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        Tallas
+                        </font></font><i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                
+                        <li class="nav-item">
+                        <a href="../UI/sliders.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chica</font></font></p>
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a href="../UI/sliders.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mediana</font></font></p>
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a href="../UI/sliders.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Grande</font></font></p>
+                        </a>
+                        </li>
+        
+                    </ul>
+                </li>
+                <!----------------------------------------------------------------->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        Compras
+                        </font></font><i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="../forms/general.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pantalon Levis</p>
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a href="../forms/general.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Blusa</p>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <!----------------------------------------------------------------->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        Tipo de Cliente
+                        </font></font><i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="../tables/simple.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Basico con 3 puntos</p>
+                        </a>
+                        </li>
+                        </ul>
+                    
+                </li>
+                <!----------------------------------------------------------------->
+                <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicios</font></font></li>
+                <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-envelope"></i>
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Más Vistos
+                            </font></font><i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <!--
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <a href="../mailbox/mailbox.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Inbox</p>
+                            </a>
+                            </li>
+                    
+                        </ul>
+                        -->
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-envelope"></i>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        Más Vendidos
+                        </font></font><i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <!--
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="../mailbox/mailbox.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Inbox</p>
+                        </a>
+                        </li>
+                
+                    </ul>
+                    -->
+                </li>
+                <!----------------------------------------------------------------->
+            
+                <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ajustes</font></font></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="fas fa-circle nav-icon"></i>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Calendario de Apartados</font></font></p>
+                    </a>
+                </li>
+                <!----------------------------------------------------------------->
+                </ul>
+            </nav>
+    </div>
+</aside>
+
+
+
+

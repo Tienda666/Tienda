@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body>
+    {% include 'nav.html' %}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h1 class="card-title">Registrar Artículo</h1>               
+                        <form method="POST" action="{% url 'registrararticulo'%}" class="form">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <label for="validationCustom05">ID Artículo</label>
+                                            <input type="text" name="idAr" class="form-control" id="validationCustom05" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom01">Nombre</label>
+                                        <input type="text" name="nameAr" class="form-control" id="validationCustom01" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom02">ID Categoria</label>
+                                        <input type="text" name="idcat" class="form-control" id="validationCustom02" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom02">Talla</label>
+                                        <input type="text" name="talla" class="form-control" id="validationCustom02" maxlength="1" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <label for="validationCustom02">Cantidad</label>
+                                            <input type="number" name="cantidad" class="form-control" id="validationCustom02"  autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <label for="validationCustom02">Precio</label>
+                                            <input type="text" name="precio" class="form-control" id="validationCustom02" maxlength="30" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <label for="validationCustom02">Descripción</label>
+                                            <input type="text" name="descripcion" class="form-control" id="validationCustom02" maxlength="100" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                
+                                    
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                            
+                        </form>
+                    </div>        
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+</body>
+</html>

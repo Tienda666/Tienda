@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+{%include 'header.html'%}
+<body >
+    {%include 'navizquierdo.html'%}<!--Se incluye el codigo de la barra de navegacion izquierda-->
+        <div class="card main-header">
+            {%include 'nav.html'%} <!--Se incluye el codigo de la barra de navegacion-->
+            <div class="card-header">
+                <h3 class="card-title">Lista de articulos favoritos</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                <thead>                  
+                    <tr>
+                    <th style="width: 10px">ID</th>
+                    <th>Nombre</th>
+                    <th style="width: 20px">Talla</th>
+                    <th style="width: auto">Precio</th>
+                    <th>Cantidad</th>
+                    <th style="width: 80px">Label</th>
+                    <th style="width: 40px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for x in articulos%}
+                        <tr>
+                            <td>{{x.idAr}}</td>
+                            <td>{{x.nameAr}}</td>
+                            <td>{{x.talla | upper}}</td>
+                            <td>{{x.precio}}</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width:{{x.cantidad}}% "></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger " style="width: 50px; font-size: 18px; height: 25px;">{{x.cantidad}}</span></td>
+                            <td>
+                                <button type="button" class="btn btn-block bg-gradient-primary btn-xs">Editar</button>
+                                <button type="button" class="btn btn-block bg-gradient-danger btn-xs">Eliminar</button>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                    <button class="btn bg-teal btn-flat">
+                       <i class="far fa-edit"></i> Agregar Articulo
+                       
+                    </button>
+            </div>
+            <!--Paginacion -->
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                <li class="page-item"><a class="page-link" href="#">«</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+
+    {%include 'footer.html'%}
+</body>
+</html>
+
+
+
